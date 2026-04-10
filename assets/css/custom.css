@@ -1,0 +1,189 @@
+/* ===============================================
+   FitPower GYM - Custom Styles
+   TechSites A.I | Variante GYM/Fitness
+   Paleta: Laranja Energia + Dark Background
+   BASEADO NO TEMPLATE MASTER - Apenas camadas permitidas
+=============================================== */
+
+/* === VARIÁVEIS DE COR - Paleta GYM === */
+:root {
+  --color-primary: #ff6b00;
+  --color-primary-dark: #e05a00;
+  --color-primary-light: #ff8c2e;
+  --color-accent: #ffaa00;
+  --color-dark: #1a1a1a;
+  --color-dark-alt: #222222;
+  --color-text: #f0f0f0;
+  --color-highlight: #ff6b00;
+}
+
+/* === HEADER TRANSPARENTE === */
+#header {
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.scrolled #header {
+  background: rgba(26, 26, 26, 0.97);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+/* === CORES DO BOTÃO PRIMARY === */
+.button.primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.button.primary:hover {
+  background-color: var(--color-primary-dark) !important;
+  border-color: var(--color-primary-dark) !important;
+}
+
+/* === DESTAQUES DE COR === */
+#banner .content header h2 {
+  font-size: 3.2em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* === MENU HAMBURGER MOBILE === */
+#navPanelToggle {
+  display: none;
+}
+
+@media screen and (max-width: 980px) {
+  #nav {
+    display: none;
+  }
+
+  #navPanelToggle {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10001;
+    width: 3.5rem;
+    height: 3.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  #navPanelToggle .toggle {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  #navPanelToggle .toggle:before,
+  #navPanelToggle .toggle:after,
+  #navPanelToggle .toggle span {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0.6rem;
+    right: 0.6rem;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  #navPanelToggle .toggle:before { top: 0.85rem; }
+  #navPanelToggle .toggle span { top: 1.6rem; }
+  #navPanelToggle .toggle:after { top: 2.35rem; }
+
+  body.navPanel-visible #navPanelToggle .toggle:before {
+    transform: translateY(0.75rem) rotate(45deg);
+  }
+  body.navPanel-visible #navPanelToggle .toggle span { opacity: 0; }
+  body.navPanel-visible #navPanelToggle .toggle:after {
+    transform: translateY(-0.75rem) rotate(-45deg);
+  }
+
+  #navPanel {
+    position: fixed;
+    top: 0;
+    right: -22rem;
+    width: 22rem;
+    height: 100%;
+    background: rgba(26, 26, 26, 0.99);
+    z-index: 10000;
+    transition: right 0.3s ease;
+    padding: 5rem 2rem 2rem;
+    overflow-y: auto;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.7);
+  }
+
+  body.navPanel-visible #navPanel { right: 0; }
+
+  #navPanel nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #navPanel nav ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  #navPanel nav ul li a {
+    display: block;
+    padding: 1.2rem 0;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+
+  #navPanel nav ul li a:hover,
+  #navPanel nav ul li a.active {
+    color: var(--color-primary);
+  }
+
+  #navPanel-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+  }
+
+  body.navPanel-visible #navPanel-overlay { display: block; }
+}
+
+@media screen and (max-width: 480px) {
+  #navPanel {
+    width: 85vw;
+    right: -85vw;
+  }
+}
+
+/* === SEÇÃO BANNER GYM === */
+#banner {
+  background-color: var(--color-dark);
+  background-image: url('../../images/gym-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+#banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* === FEATURES ICONS === */
+.icon.major {
+  color: var(--color-primary);
+}
+
+/* === SCROLL BEHAVIOR === */
